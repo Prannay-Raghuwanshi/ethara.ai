@@ -11,9 +11,7 @@
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.1"
-  },
-  "devDependencies": {
+    "react-router-dom": "^7.6.1",
     "@tailwindcss/vite": "^4.1.7",
     "@vitejs/plugin-react": "^4.5.0",
     "serve": "^14.2.4",

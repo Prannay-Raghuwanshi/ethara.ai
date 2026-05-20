@@ -6,6 +6,11 @@ import authRoutes from './routes/auth.js';
 import projectRoutes from './routes/projects.js';
 import taskRoutes from './routes/tasks.js';
 import dashboardRoutes from './routes/dashboard.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -42,6 +47,12 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use((err, _req, res, _next) => {
   console.error(err);
   res.status(500).json({ error: 'Internal server error' });
+});
+
+// Serve frontend in production
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
 
 async function start() {
