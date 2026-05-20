@@ -1,0 +1,7 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "npm run build && npx serve dist -s -l $PORT"
+healthcheckPath = "/"
+restartPolicyType = "ON_FAILURE"

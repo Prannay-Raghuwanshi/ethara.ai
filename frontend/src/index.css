@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100 antialiased min-h-screen;
+  font-family: var(--font-sans);
+}
